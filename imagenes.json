@@ -1,0 +1,44 @@
+{
+    "imagenes": [
+      {
+        "nombre": "icono",
+        "ruta": "./src/assets/img/icono.png"
+      },
+      {
+        "nombre": "background",
+        "ruta": "./src/assets/img/background.png"
+      },
+      {
+        "nombre": "personaje_principal",
+        "ruta": "./src/assets/img/cat.png"
+      },
+      {
+        "nombre": "proyectil_imagen",
+        "ruta": "./src/assets/img/disparo.png"
+      },
+      {
+        "nombre": "gift_image",
+        "ruta": "./src/assets/img/gift.png"
+      },
+      {
+        "nombre": "food",
+        "ruta": "./src/assets/img/food.png"
+      },
+      {
+        "nombre": "vida_imagen",
+        "ruta": "./src/assets/img/vida.png"
+      },
+      {
+        "nombre": "menu_imagen",
+        "ruta": "./src/assets/img/Cat-game.png"
+      },
+      {
+        "nombre": "background_options",
+        "ruta": "./src/assets/img/Game_OPTIONS.png"
+      },
+      {
+        "nombre": "vida_imagen",
+        "ruta": "./src/assets/img/vida.png"
+      }
+    ]
+  }
