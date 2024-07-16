@@ -189,7 +189,7 @@ def juego():
         tiempo_actual = time.time()  # obtiene el tiempo actual
 
         # Crear un nuevo regalo cada 10 segundos
-        if tiempo_actual - gift_timer >= 10:
+        if tiempo_actual - gift_timer >= 5:
             gift_x = randint(0, WIDTH - 50)
             gift_y = randint(-150, -50)
             gift_speed = randint(2, 5)
@@ -198,7 +198,7 @@ def juego():
             gift_timer = tiempo_actual
 
 
-        if tiempo_actual - food_timer >= 20:
+        if tiempo_actual - food_timer >= 5:
             food_x = randint(0, WIDTH - 50)
             food_y = randint(-150, -50)
             food_speed = randint(1, 8)
@@ -207,9 +207,9 @@ def juego():
             food_timer = tiempo_actual
 
         for enemy, enemy_rect, speed in enemies[:]:
-            enemy_rect.y += speed  # Mover enemigo hacia abajo
-            if enemy_rect.top > HEIGHT:  # Si el enemigo sale de la pantalla por la parte inferior
-                enemy_rect.x = randint(0, WIDTH - 50)  # Reposicionar en un lugar aleatorio en la parte superior
+            enemy_rect.y += speed  
+            if enemy_rect.top > HEIGHT: 
+                enemy_rect.x = randint(0, WIDTH - 50)  
                 enemy_rect.y = randint(-150, -50)
 
             SCREEN.blit(enemy, enemy_rect)
@@ -219,7 +219,7 @@ def juego():
                 punch_sound.play()
                 if vidas:
                     vidas.pop()
-                    ultimo_tiempo_colision = tiempo_actual  # actualizar tiempo de última colisión
+                    ultimo_tiempo_colision = tiempo_actual  
                     if len(vidas) == 0:
                         pygame.mixer.music.stop()
                         punch_sound.stop()
@@ -228,7 +228,7 @@ def juego():
 
         # Actualizar la posición de los proyectiles y detectar colisiones con los enemigos
         for proyectil in proyectiles[:]:
-            proyectil.y -= 10  # Mueve el proyectil hacia arriba
+            proyectil.y -= 10  
 
             # Verificar colisión con cada enemigo
             for enemy, enemy_rect, speed in enemies[:]:

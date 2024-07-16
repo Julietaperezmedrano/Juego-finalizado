@@ -11,11 +11,11 @@ def menu_principal(SCREEN, fuente):
     pygame.mixer.music.load("./src/assets/sounds/musica_principal.mp3")
     pygame.mixer.music.set_volume(0.20)
     pygame.mixer.music.play(-1)  
-    flag_space = True  #para alternar la visibilidad del texto
+    flag_space = True 
     temporizador_tiempo = 0
     temporizador_alternar_tiempo = 0.60
     menu = True
-    hovered_start = False #para detectar si el ratón está sobre los botones
+    hovered_start = False 
     hovered_options = False
     hovered_exit = False
     while menu:
@@ -27,8 +27,7 @@ def menu_principal(SCREEN, fuente):
         is_hovered_options = dibujar_btn("Options", pygame.Rect(300, 310, 300, 70), GREY, DARK_GREY, options)
         is_hovered_exit = dibujar_btn("Exit", pygame.Rect(300, 410, 300, 70), GREY, DARK_GREY, quit_game)
         sound_arriba_del_boton = pygame.mixer.Sound("./src/assets/sounds/menuboton.mp3")
-        #Reproducir un sonido solo una vez cuando el ratón se mueve sobre un botón por primera vez, y no cada vez que se mantiene sobre él.
-        if is_hovered_start and not hovered_start: #True / False
+        if is_hovered_start and not hovered_start: 
             sound_arriba_del_boton.play()
         if is_hovered_options and not hovered_options:
             sound_arriba_del_boton.play()
@@ -71,7 +70,7 @@ def options():
                 if event.key == pygame.K_ESCAPE:
                     running = False
 
-        SCREEN.blit(background_options, ORIGIN)  # Dibujar la imagen de fondo en la pantalla
+        SCREEN.blit(background_options, ORIGIN) 
 
         if music_on:
             music_btn_text = "Music_on"
@@ -79,7 +78,7 @@ def options():
             music_btn_text = "Music_off"
         dibujar_btn(music_btn_text,  pygame.Rect(300, 270, 300, 70), GREY, CLEAR_BLUE)
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:  # Verificar si se hizo clic con el botón izquierdo del mouse
+            if event.button == 1: 
                 mouse_pos = pygame.mouse.get_pos()
                 music_btn_rect = pygame.Rect(300, 270, 300, 70)
                 if music_btn_rect.collidepoint(mouse_pos):
@@ -91,7 +90,7 @@ def options():
                     
         dibujar_btn("Scores",  pygame.Rect(300, 370, 300, 70), GREY, CLEAR_BLUE, scores_screen)
         crear_texto("Press ESC to go back", fuente, WHITE, (220, 500))
-        pygame.display.flip()  # Actualizar la pantalla
+        pygame.display.flip()  
 
 
 
@@ -112,11 +111,8 @@ def scores_screen():
 
         dibujar_btn("Score", pygame.Rect(300, 50, 300, 70), GREY, CLEAR_BLUE)
 
-        # Mostrar puntajes solo una vez al inicio
         if contador == 1:
             height_score = 150
-
-            # Encontrar el puntaje más alto
             max_puntaje = 0
             max_jugador = ""
             for i in range(1, len(archivo_cargado)):
@@ -125,14 +121,12 @@ def scores_screen():
                     max_puntaje = puntaje
                     max_jugador = archivo_cargado[i][0]
 
-            # Obtener los últimos tres puntajes
+            #últimos tres puntajes
             ultimos_tres = archivo_cargado[-3:] if len(archivo_cargado) >= 3 else archivo_cargado
 
-            # Mostrar el puntaje más alto
             crear_texto(f"BEST: JUGADOR {max_jugador} SCORE {max_puntaje}", fuente, GREY, (160, height_score))
             height_score += 80
 
-            # Mostrar los últimos tres puntajes
             for j in range(len(ultimos_tres)):
                 crear_texto(f"JUGADOR {ultimos_tres[j][0]} SCORE: {ultimos_tres[j][1]}", fuente, WHITE, (220, height_score))
                 height_score += 80

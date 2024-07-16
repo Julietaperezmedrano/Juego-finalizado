@@ -14,8 +14,8 @@ def get_path_actual(nombre_archivo):
     directorio_actual = os.path.dirname(__file__)
     return os.path.join(directorio_actual, nombre_archivo)
 
-with open(get_path_actual("imagenes.json"), "r", encoding="utf-8") as archivo: #que lea el archivo
-    datos = json.load(archivo) #que lo cargue a una lista de dict
+with open(get_path_actual("imagenes.json"), "r", encoding="utf-8") as archivo:
+    datos = json.load(archivo) 
 
 imagenes = {}
 
